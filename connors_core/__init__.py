@@ -6,7 +6,7 @@ This package provides:
 - Configuration management
 - Technical indicators (TALipp-based)
 - Performance metrics
-- Stock screening system
+
 - Utility functions
 """
 
