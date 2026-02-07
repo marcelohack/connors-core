@@ -21,13 +21,20 @@ Core components shared across all Connors Trading System packages. Provides the 
 pip install connors-core
 ```
 
-For development:
+### Local Development
+
+**Prerequisites**: Python 3.13, [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
 
 ```bash
-git clone https://github.com/marcelohack/connors-core.git
-cd connors-core
+# 1. Create and activate a virtual environment
+pyenv virtualenv 3.13 connors-core
+pyenv activate connors-core
+
+# 2. Install with dev dependencies
 pip install -e ".[dev]"
 ```
+
+A `.python-version` file is included so pyenv auto-activates when you `cd` into this directory.
 
 ## Quick Start
 
