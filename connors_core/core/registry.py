@@ -13,6 +13,7 @@ INDICATOR = "indicator"
 REGIME_METHOD = "regime_method"
 DATASOURCE = "datasource"
 SR_METHOD = "sr_method"
+BOT = "bot"
 
 
 class _StorageView(dict):
@@ -103,6 +104,7 @@ class ComponentRegistry:
         self._regime_methods: Any = _StorageView(self._storage, REGIME_METHOD)
         self._datasources: Any = _StorageView(self._storage, DATASOURCE)
         self._sr_methods: Any = _StorageView(self._storage, SR_METHOD)
+        self._bots: Any = _StorageView(self._storage, BOT)
 
     @property
     def _screening_configs(self) -> Dict[str, Dict[str, Any]]:
@@ -303,6 +305,33 @@ class ComponentRegistry:
     def list_regime_methods(self) -> List[str]:
         """List available external regime detection methods"""
         return self._storage.list_names(REGIME_METHOD)
+
+    # -- Bot --
+
+    def register_bot(self, name: str) -> Callable[[Type], Type]:
+        def decorator(cls: Type) -> Type:
+            self._storage.put(BOT, name, cls)
+            cls._registry_name = name  # type: ignore[attr-defined]
+            return cls
+
+        return decorator
+
+    def get_bot(self, name: str) -> Type:
+        if not self._storage.has(BOT, name):
+            raise ValueError(
+                f"Bot '{name}' not found. Available: {self._storage.list_names(BOT)}"
+            )
+        return self._storage.get(BOT, name)
+
+    def create_bot(self, name: str, **kwargs: Any) -> Any:
+        if not self._storage.has(BOT, name):
+            raise ValueError(
+                f"Bot '{name}' not found. Available: {self._storage.list_names(BOT)}"
+            )
+        return self._storage.get(BOT, name)(**kwargs)
+
+    def list_bots(self) -> list[str]:
+        return self._storage.list_names(BOT)
 
     # -- Screening Config (special: nested provider -> config structure) --
 
