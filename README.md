@@ -23,18 +23,13 @@ pip install connors-core
 
 ### Local Development
 
-**Prerequisites**: Python 3.13, [pyenv](https://github.com/pyenv/pyenv) + [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv)
+**Prerequisites**: [uv](https://github.com/astral-sh/uv) (will install Python 3.13 if needed).
 
 ```bash
-# 1. Create and activate a virtual environment
-pyenv virtualenv 3.13 connors-core
-pyenv activate connors-core
-
-# 2. Install with dev dependencies
-pip install -e ".[dev]"
+uv sync --extra dev
 ```
 
-A `.python-version` file is included so pyenv auto-activates when you `cd` into this directory.
+uv reads `.python-version` to pick the interpreter and creates `.venv/` automatically. Run commands with `uv run <cmd>` (no activation needed), or `source .venv/bin/activate`.
 
 ## Quick Start
 
