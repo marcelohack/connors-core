@@ -116,7 +116,7 @@ pytest --cov=connors_core
 
 | Package | Description | Links |
 |---------|-------------|-------|
-| [connors-playground](https://github.com/marcelohack/connors-playground) | CLI + Streamlit UI (integration hub) | [README](https://github.com/marcelohack/connors-playground#readme) |
+| [connors-playground](https://github.com/marcelohack/connors-playground) | Workspace hub + API token manager | [README](https://github.com/marcelohack/connors-playground#readme) |
 | [connors-backtest](https://github.com/marcelohack/connors-backtest) | Backtesting service + built-in strategies | [README](https://github.com/marcelohack/connors-backtest#readme) |
 | [connors-strategies](https://github.com/marcelohack/connors-strategies) | Trading strategy collection (private) | — |
 | [connors-screener](https://github.com/marcelohack/connors-screener) | Stock screening system | [README](https://github.com/marcelohack/connors-screener#readme) |
