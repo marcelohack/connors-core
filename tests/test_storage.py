@@ -12,8 +12,8 @@ class TestInMemoryStorage:
         self.storage = InMemoryStorage()
 
     def test_put_and_get(self) -> None:
-        self.storage.put("strategy", "LCRSI2", "cls_ref")
-        assert self.storage.get("strategy", "LCRSI2") == "cls_ref"
+        self.storage.put("strategy", "RSI-2", "cls_ref")
+        assert self.storage.get("strategy", "RSI-2") == "cls_ref"
 
     def test_get_missing_returns_none(self) -> None:
         assert self.storage.get("strategy", "missing") is None

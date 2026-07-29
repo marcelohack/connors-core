@@ -13,16 +13,16 @@ class TestStrategyConfig:
 
     def test_basic_creation(self):
         config = StrategyConfig(
-            name="LCRSI2",
+            name="RSI-2",
             parameters={"rsi_period": 2, "rsi_level": 5.0},
         )
-        assert config.name == "LCRSI2"
+        assert config.name == "RSI-2"
         assert config.parameters["rsi_period"] == 2
         assert config.risk_management is None
 
     def test_with_risk_management(self):
         config = StrategyConfig(
-            name="LCRSI2_TPSL",
+            name="RSI-2_tp_sl",
             parameters={"rsi_period": 2},
             risk_management={"tp_pct": 5.0, "sl_pct": 2.0},
         )
