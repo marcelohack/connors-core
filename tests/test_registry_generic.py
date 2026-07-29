@@ -84,13 +84,13 @@ class TestGenericAPI:
     def test_generic_and_typed_coexist(self) -> None:
         """Components registered via typed API are visible via generic API."""
 
-        @self.registry.register_strategy("LCRSI2")
-        class LCRSI2:
+        @self.registry.register_strategy("RSI-2")
+        class RSI2:
             pass
 
-        assert self.registry.get(STRATEGY, "LCRSI2") is LCRSI2
-        assert self.registry.has(STRATEGY, "LCRSI2")
-        assert "LCRSI2" in self.registry.list_components(STRATEGY)
+        assert self.registry.get(STRATEGY, "RSI-2") is RSI2
+        assert self.registry.has(STRATEGY, "RSI-2")
+        assert "RSI-2" in self.registry.list_components(STRATEGY)
 
     def test_typed_sees_generic_registration(self) -> None:
         """Components registered via generic API are visible via typed API."""

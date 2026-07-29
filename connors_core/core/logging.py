@@ -70,7 +70,7 @@ def setup_strategy_logger(strategy_name: str, level: str = "INFO") -> logging.Lo
     Convenience function for creating loggers for strategy classes.
 
     Args:
-        strategy_name: Name of the strategy (e.g., "LCRSI2")
+        strategy_name: Name of the strategy (e.g., "RSI-2")
         level: Logging level
 
     Returns:
