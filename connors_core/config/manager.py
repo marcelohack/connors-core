@@ -28,7 +28,7 @@ class BacktestConfigManager:
             "crypto": BacktestConfig("crypto", "", 10_000, 0),
         }
 
-        self.default_config = os.getenv("BACKTEST_CONFIG", "america")
+        self.default_config = os.getenv("CONNORS_BACKTEST_CONFIG", "america")
 
     def get_market_config(self, config_name: str) -> BacktestConfig:
         """Get market configuration by name"""
